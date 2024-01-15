@@ -1,0 +1,71 @@
+:root {
+  --body-background-color: #282c34;
+  --game-size: 400px;
+  --game-grid-line-color: #143a15;
+  --game-border-color: #39ae3c;
+  --food-color: white;
+
+  --snake-color: #52c855;
+  --pixel-size: 100px;
+
+  --game-body-color: #16181b;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--body-background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin-bottom: 30px;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.game {
+  background-color: var(--game-body-color);
+  height: var(--game-size);
+  width: var(--game-size);
+  background-image: linear-gradient(0deg, transparent calc(var(--pixel-size) - 1px), var(--game-grid-line-color) var(--pixel-size)),
+    linear-gradient(90deg, transparent calc(var(--pixel-size) - 1px), var(--game-grid-line-color) var(--pixel-size)),
+    linear-gradient(180deg, transparent calc(var(--pixel-size) - 1px), var(--game-grid-line-color) var(--pixel-size)),
+    linear-gradient(-90deg, transparent calc(var(--pixel-size) - 1px), var(--game-grid-line-color) var(--pixel-size));
+  background-size: var(--pixel-size) var(--pixel-size);
+  position: relative;
+}
+
+.snake-head,
+.snake-body {
+  height: var(--pixel-size);
+  width: var(--pixel-size);
+  background-color: var(--snake-color);
+  position: absolute;
+  transition: left 0.2s linear, top 0.2s linear;
+  box-shadow: inset 0 0 0 3px var(--game-border-color);
+}
+
+#snake {
+  background-color: green;
+}
+
+.food {
+  height: var(--pixel-size);
+  width: var(--pixel-size);
+  background-color: var(--food-color);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
